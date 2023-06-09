@@ -13,6 +13,7 @@ This script will return a json object that contains the following data:
 
 import json
 import requests
+import csv
 from requests.exceptions import HTTPError
 
 url = "https://secim2023.cnnturk.com/api/home/"
@@ -37,3 +38,10 @@ else:
 
     open('../datasets/election_results.json', 'w', encoding='utf-8').write(
         json.dumps(provinces, indent=4, sort_keys=True, ensure_ascii=False))
+
+    with open('../datasets/election_results.csv', 'w') as f:
+        writer = csv.writer(f)
+        writer.writerow(['city', 'party'])
+        for key, value in provinces.items():
+            key = key.title()
+            writer.writerow([key, value])
