@@ -5,15 +5,15 @@ def turkish_lower(s):
     return s.lower()
 
 data = []
-with open('./datasets/starbucks.txt', 'r') as f:
+with open('./datasets/highschool_education_rate_according_meb.txt', 'r') as f:
   data = f.readlines()[1:]
   for idx, item in enumerate(data):
     item = item.strip()
     nodes = item.split(' ')
     data[idx] = nodes
 
-with open('./datasets/starbucks.csv', 'w',  encoding='utf-8') as f:
-  f.write('city,starbucks_count\n')
+with open('./datasets/highschool_education_rate_according_meb.csv', 'w',  encoding='utf-8') as f:
+  f.write('city,school_rate\n')
   # writer = csv.writer(f)
   # writer.writerow(['city', 'count($)'])
   for item in data:
