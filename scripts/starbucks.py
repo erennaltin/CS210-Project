@@ -1,6 +1,12 @@
 import requests
 import csv
 from bs4 import BeautifulSoup as bs
+import string
+
+def turkish_lower(s):
+    s = s.replace('I', 'ı').replace('İ', 'i')
+    return s.lower()
+
 
 cities = {}
 
@@ -12,7 +18,6 @@ try:
   for i in data:
     nodes = i.find_all('td')
     city = nodes[2].text
-
     if city in cities:
       cities[city] += 1
     else:
@@ -24,15 +29,12 @@ except:
 # sort cities according to their values
 cities = dict(sorted(cities.items(), key=lambda item: item[1], reverse=True))
 
-for city in cities:
-  with open('./datasets/starbucks.txt', 'a') as f:
-    key = city.title()
-    f.write(key + ' ' + str(cities[city]) + '\n')
-
-with open('./datasets/starbucks.csv', 'w') as f:
+with open('./datasets/starbucks.csv', 'w', encoding='utf-8') as f:
   writer = csv.writer(f)
-  writer.writerow(['city', 'starbucks_count'])
+  writer.writerow(['city', 'starbucks count'])
   for key, value in cities.items():
-    # conver CITY to City
+    key = turkish_lower(key)
     key = key.title()
+    
     writer.writerow([key, value])
+
