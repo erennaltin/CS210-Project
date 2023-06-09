@@ -1,4 +1,5 @@
 import requests
+import csv
 from bs4 import BeautifulSoup as bs
 
 cities = {}
@@ -26,3 +27,9 @@ cities = dict(sorted(cities.items(), key=lambda item: item[1], reverse=True))
 for city in cities:
   with open('./datasets/starbucks.txt', 'a') as f:
     f.write(city + ' ' + str(cities[city]) + '\n')
+
+with open('./datasets/starbucks.csv', 'w') as f:
+  writer = csv.writer(f)
+  writer.writerow(['City', 'Count'])
+  for key, value in cities.items():
+    writer.writerow([key, value])
