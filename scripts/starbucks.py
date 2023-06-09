@@ -31,7 +31,7 @@ for city in cities:
 
 with open('./datasets/starbucks.csv', 'w') as f:
   writer = csv.writer(f)
-  writer.writerow(['City', 'Count'])
+  writer.writerow(['city', 'starbucks_count'])
   for key, value in cities.items():
     # conver CITY to City
     key = key.title()
