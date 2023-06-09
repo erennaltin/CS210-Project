@@ -1,3 +1,4 @@
+# city, school rate
 İstanbul 50.82
 Tekirdağ 50.10
 Edirne 54.06
