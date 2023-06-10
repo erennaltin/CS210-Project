@@ -8,6 +8,8 @@ You can find processed datasets in `datasets/`. We proccessed all data we got to
 
 You can find scripts in `scripts/`. The folder includes PyPDF2 scripts to process PDF files, web scrapping scripts, format convertion scripts, and API scripts.
 
+You can find figures in `figures/`. The folder includes figures that we created while examining our data and creating our model.
+
 We believed in FAIR principles and therefore, we share everything we have with access. You can check and train your model!
 
 ## Thank you for that amazing semester!
